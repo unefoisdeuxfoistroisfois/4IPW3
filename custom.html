@@ -6,6 +6,7 @@
     <title>Formulaire Euronews</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="lib/external.css">
+    <link rel="stylesheet" href="css/search-form.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -89,34 +90,90 @@
 <main class="formulaire-recherche">
     <h1 class="form-title">Faire votre recherche :</h1>
     <form class="search-form" action="#" method="get">
-        <label for="titre-motscles">Mots-clés dans le titre :</label>
-        <input type="text" id="titre-motscles" name="titre-motscles" placeholder="Entrez des mots-clés...">
+        
+        <!-- Champ existant : Mots-clés dans le titre -->
+        <div class="form-group">
+            <label for="titre-motscles">Mots-clés dans le titre :</label>
+            <input type="text" id="titre-motscles" name="titre-motscles" placeholder="Entrez des mots-clés...">
+        </div>
 
-        <label for="corps-motscles">Mots-clés dans le texte :</label>
-        <input type="text" id="corps-motscles" name="corps-motscles" placeholder="Entrez des mots-clés...">
+        <!-- Champ existant : Mots-clés dans le texte -->
+        <div class="form-group">
+            <label for="corps-motscles">🔍 Mots-clés dans le texte :</label>
+            <input type="text" id="corps-motscles" name="corps-motscles" placeholder="Entrez des mots-clés...">
+        </div>
 
-        <label for="date">Date :</label>
-        <input type="date" id="date" name="date">
+        <!-- Champ existant : Date -->
+        <div class="form-group">
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date">
+        </div>
 
-        <label for="categorie">Catégorie :</label>
-        <select id="categorie" name="categorie">
-            <option value="main-news">Main News</option>
-            <option value="belgique">Belgique</option>
-            <option value="marche">Marché</option>
-            <option value="tech">Tech</option>
-            <option value="securite">Sécurité</option>
-        </select>
+        <!-- NOUVEAU : Catégorie avec boutons radio au lieu de dropdown -->
+        <div class="form-group">
+            <label>📁 Catégorie :</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="cat-all" name="categorie" value="all" checked>
+                    <label for="cat-all" class="radio-label">Toutes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="cat-main-news" name="categorie" value="main-news">
+                    <label for="cat-main-news" class="radio-label">Main News</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="cat-belgique" name="categorie" value="belgique">
+                    <label for="cat-belgique" class="radio-label">Belgique</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="cat-marche" name="categorie" value="marche">
+                    <label for="cat-marche" class="radio-label">Marché</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="cat-tech" name="categorie" value="tech">
+                    <label for="cat-tech" class="radio-label">Tech</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="cat-securite" name="categorie" value="securite">
+                    <label for="cat-securite" class="radio-label">Sécurité</label>
+                </div>
+            </div>
+        </div>
 
-        <label for="nombre-articles">Nombre d'articles à afficher :</label>
-        <input type="number" id="nombre-articles" name="nombre-articles" min="1" max="50">
+        <!-- NOUVEAU : Temps de lecture (Slider double) -->
+        <div class="form-group">
+            <label>⏱️ Temps de lecture :</label>
+            <div class="slider-container">
+                <div class="slider-values">
+                    <span id="min-value">0 min</span>
+                    <span id="max-value">30 min</span>
+                </div>
+                <div class="slider-track">
+                    <div class="slider-range"></div>
+                </div>
+                <div class="slider-inputs">
+                    <input type="range" id="readtime-min" class="slider-input" min="0" max="30" value="0" step="1">
+                    <input type="range" id="readtime-max" class="slider-input" min="0" max="30" value="30" step="1">
+                </div>
+            </div>
+        </div>
 
-        <label for="trier">Trier par :</label>
-        <select id="trier" name="trier">
-            <option value="ancien-recents">Du plus ancien au plus récent</option>
-            <option value="recents-anciens">Du plus récent au plus ancien</option>
-        </select>
+        <!-- Champ existant : Nombre d'articles -->
+        <div class="form-group">
+            <label for="nombre-articles">Nombre d'articles à afficher :</label>
+            <input type="number" id="nombre-articles" name="nombre-articles" min="1" max="50">
+        </div>
 
-        <button type="submit" class="search-button">Rechercher</button>
+        <!-- Champ existant : Trier par -->
+        <div class="form-group">
+            <label for="trier">Trier par :</label>
+            <select id="trier" name="trier">
+                <option value="ancien-recents">Du plus ancien au plus récent</option>
+                <option value="recents-anciens">Du plus récent au plus ancien</option>
+            </select>
+        </div>
+
+        <button type="submit" class="search-button">🔎 Rechercher</button>
     </form>
 </main>
 
@@ -163,6 +220,7 @@
 
 <!-- Lien vers ton script JavaScript -->
 <script src="javascript/custom.js"></script>
+<script src="javascript/search-form.js"></script>
 </body>
 
 </html>
