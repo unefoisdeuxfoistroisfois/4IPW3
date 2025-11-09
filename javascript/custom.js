@@ -1,5 +1,5 @@
 (function () {
-    // helper: récupère l'élément select en testant plusieurs ids possibles
+    // récupère l'élément select en testant plusieurs ids possibles
     function getSelectByIds(ids) {
         for (const id of ids) {
             const el = document.getElementById(id);

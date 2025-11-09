@@ -1,4 +1,4 @@
-// === Compteur de clics sur les articles ===
+//Compteur de clics sur les articles
 
 // Fonction pour mettre à jour l'affichage des statistiques
 function updateStatsDisplay() {
@@ -14,15 +14,14 @@ function updateStatsDisplay() {
         return;
     }
 
-    // Format d'affichage : un par ligne, séparé par " - "
+    // Format d'affichage :
     statsContainer.innerHTML = Object.entries(stats)
         .map(([title, count]) => `- ${title}: ${count}`)
         .join("<br>");
 }
 
-// Fonction pour enregistrer les clics (uniquement sur les articles)
+// Fonction pour enregistrer les clics uniquement sur les articles
 function setupClickTracking() {
-    // On cible uniquement les liens des articles (pas les menus)
     const articleLinks = document.querySelectorAll(
         ".main-article a, .side-articles a, .discovery a, .more-news a"
     );
