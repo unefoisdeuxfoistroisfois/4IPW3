@@ -1,0 +1,18 @@
+.click-stats {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: "Courier New", sans-serif;
+    font-size: 0.65rem;
+    opacity: 0.8;
+    color: #555;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    max-width: 250px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: left;
+    overflow: hidden;
+}
