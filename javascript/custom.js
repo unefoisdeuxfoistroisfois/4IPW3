@@ -1,4 +1,3 @@
-// custom.js - remplacement complet (copier/coller)
 (function () {
     // helper: récupère l'élément select en testant plusieurs ids possibles
     function getSelectByIds(ids) {
