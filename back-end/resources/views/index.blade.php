@@ -6,15 +6,8 @@
     <title>Toute l'information internationale en DIRECT</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="lib/external.css">
-    <link rel="stylesheet" href="css/popup.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <button id="toggle-main-articles">Afficher seulement les titres</button>
-    <button id="show-more-side">Voir plus d’articles</button>
 </head>
-
-
-<script src="javascript/custom.js"></script>
-<script src="javascript/article-details.js"></script>
 
 <body>
     <header class="header-hover-area">
@@ -185,9 +178,6 @@
             Contact: 24-00523.amm.abd@isfce.be | ISFCE 4IWPB
         </div>
     </footer>
-
-    <script src="javascript/toggle-article.js"></script>
-    <script src="javascript/show-more-articles.js"></script>
 </body>
 
 </html>
