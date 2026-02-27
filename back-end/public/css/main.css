@@ -1,0 +1,295 @@
+                                  /* Général */
+body {
+    margin: 0;
+    font-family: "Courier New", sans-serif;
+    background: #fff;
+    color: #000;
+  }
+  header {                        /* Header */
+    background: #fff;
+    color: rgb(197, 197, 0);
+    padding: 10px 20px;
+    text-align: center;
+    font-family: "Bodoni MT", serif;
+    font-size: 2rem;
+  }
+  .header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .logo {
+    font-family: "Bodoni MT", serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(197, 197, 0);
+    text-align: center;
+  }
+  .language-selector {
+    position: absolute;
+    left: 20px;
+    font-family: "Courier New", sans-serif;
+    color: rgb(197, 197, 0);
+  }
+  .language-selector select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  nav {                           /* Navigation */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #f0f0f0;
+    padding: 10px;
+  }
+  nav a {
+    text-decoration: none;
+    margin: 5px 15px;
+    color: #000;
+    font-family: "Courier New", sans-serif;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: rgb(197, 197, 0);
+  }
+  .article-image {                  /*Article Cora main*/
+    width: 100%;
+    max-width: 700px;
+    margin: 20px 0;
+    display: block;
+    border-radius: 10px;
+  }
+  .main-news {                      /* Section principale */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  .main-article {
+    flex: 2;
+    min-width: 300px;
+  }
+  .main-article img {
+    width: 88%;
+    height: 420px;
+  }
+  .main-article h2 {
+    font-family: "Bodoni MT", serif;
+    color: rgb(197, 197, 0);
+    font-size: 200%;
+    margin: 0;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+  }
+  .main-article h2:hover {
+    text-decoration: underline;
+  }
+  .main-article a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .main-article a:hover {
+    text-decoration: underline;
+    color: rgb(197, 197, 0);
+  }
+  .main-article p {
+    margin: 0.5rem 0;
+  }  
+  .side-articles a, .discovery a, .more-news a {          /* Liens sur tous les articles */
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .side-articles a:hover h4,
+  .discovery a:hover h3,
+  .more-news a:hover h3 {
+    text-decoration: underline;
+  }
+  article h3 {
+    font-family: "Bodoni MT", serif;
+    color: rgb(197, 197, 0);
+    margin-top: 5px;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+  }
+  article h3:hover {
+    text-decoration: underline;
+  }
+  article p {
+    font-family: "Courier New", sans-serif;
+  }
+  footer {                            /* Footer */
+    background: #f0f0f0;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+    font-family: "Courier New", sans-serif;
+  }
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+  }
+  .footer-logo {
+    font-family: "Bodoni MT", serif;
+    font-size: 2rem;
+    color: rgb(197, 197, 0);
+  }
+  .footer-socials {
+    display: flex;
+    gap: 15px;
+  }
+  .footer-socials a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-socials a:hover {
+    color: rgb(197, 197, 0);
+  }
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .footer-column {
+    flex: 1 1 30%;
+    min-width: 200px;
+  }
+  .footer-column h4 {
+    font-size: 1.2rem;
+    color: rgb(197, 197, 0);
+    margin-bottom: 10px;
+  }
+  .footer-column a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+  .footer-column a:hover {
+    color: rgb(197, 197, 0);
+  }
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: grey;
+  }
+  .article-info {                         /* Page article */
+    font-family: "Courier New", sans-serif;
+    font-size: 0.95rem;
+    color: rgb(197, 197, 0);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .article-page {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  .article-page img {
+    margin: 20px 0;
+    border-radius: 10px;
+  }
+  .article-info p {
+    margin: 5px 0;
+  }
+  .article-page h2 {
+    font-family: "Bodoni MT", serif;
+    color: rgb(197, 197, 0);
+    margin-top: 30px;
+  }
+  .article-source {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: grey;
+    text-align: center;
+  }
+  .article-source a {
+    color: rgb(197, 197, 0);
+    text-decoration: none;
+  }
+  .article-source a:hover {
+    text-decoration: underline;
+  }
+.side-articles {                /* Articles secondaires */
+  flex: 1;
+  color: rgb(197, 197, 0);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.side-articles article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+.side-articles h4 {
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+  font-size: 80%;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+.side-articles h4:hover {
+  text-decoration: underline;
+}
+.side-articles h4::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: rgb(197, 197, 0);
+  transition: width 0.3s ease;
+}
+.side-articles h4:hover::after {
+  width: 100%;
+}
+img {                           /* Images */
+  transition: filter 0.3s ease;
+}
+.side-articles img {
+  width: 250px;
+  height: 150px;
+}
+.discovery img, .more-news img, article img {
+  width: 450px;
+  height: 250px;
+}
+img:hover {
+  filter: brightness(1.2);
+}  
+.section-title {                 /* Sections découvertes et infos */
+  font-family: "Bodoni MT", serif;
+  font-size: 1.5rem;
+  color: rgb(197, 197, 0);
+  margin: 20px;
+  font-weight: bold;
+}
+.discovery, .more-news {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 20px 20px;
+}
+.discovery article, .more-news article {
+  flex: 1 1 calc(33.333% - 10px);
+  max-width: 450px;
+  width: 100%;
+}
