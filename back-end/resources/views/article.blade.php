@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Clap de fin pour les hypermarchés Cora en Belgique</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="lib/external.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/lib/external.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -27,17 +27,18 @@
   </header>
 
   <nav>
-    <a href="index.html">Accueil</a>
+    <a href="{{ url('/') }}">Accueil</a>
     <a href="#">Monde</a>
     <a href="#">Europe</a>
     <a href="#">Business</a>
     <a href="#">Sport</a>
     <a href="#">Culture</a>
-    <a href="custom.html">Formulaire</a>
+    <a href="{{ url('/custom') }}">Formulaire</a>
+
   </nav>
 
   <nav>
-    <a href="article.html">A LA UNE</a>
+    <a href="{{ url('/article') }}">A LA UNE</a>
     <a href="https://fr.euronews.com/2025/04/08/le-president-zelensky-confirme-que-les-troupes-ukrainiennes-avancent-dans-loblast-de-belgo">UKRAINE</a>
     <a href="https://fr.euronews.com/business/2025/04/08/von-der-leyen-propose-a-trump-un-accord-sur-les-droits-de-douane-zero-pour-zero-pour-tous-">TRUMP</a>
     <a href="https://fr.euronews.com/next/2025/04/08/tiktok-a-apporte-des-modifications-avant-la-repetition-des-elections-roumaines-selon-bruxe">TIKTOK</a>
@@ -134,6 +135,7 @@
       Contact: 24-00523.amm.abd@isfce.be | ISFCE 4IWPB
     </div>
   </footer>
+
 </body>
 
 </html>
