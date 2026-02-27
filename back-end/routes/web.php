@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // Page d'accueil
 Route::get('/', function () {
-    return view('index');
+    return view('index'); // Nom du fichier
 });
 
 // Page formulaire

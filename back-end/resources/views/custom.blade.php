@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire Euronews</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="lib/external.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/lib/external.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -27,17 +27,17 @@
     </header>
 
     <nav>
-        <a href="index.html">Accueil</a>
+        <a href="{{ url('/') }}">Accueil</a>
         <a href="#">Monde</a>
         <a href="#">Europe</a>
         <a href="#">Business</a>
         <a href="#">Sport</a>
         <a href="#">Culture</a>
-        <a href="custom.html">Formulaire</a>
+        <a href="{{ url('/custom') }}">Formulaire</a>
     </nav>
 
     <nav>
-        <a href="article.html">A LA UNE</a>
+        <a href="{{ url('/article') }}">A LA UNE</a>
         <a href="https://fr.euronews.com/2025/04/08/le-president-zelensky-confirme-que-les-troupes-ukrainiennes-avancent-dans-loblast-de-belgo">UKRAINE</a>
         <a href="https://fr.euronews.com/business/2025/04/08/von-der-leyen-propose-a-trump-un-accord-sur-les-droits-de-douane-zero-pour-zero-pour-tous-">TRUMP</a>
         <a href="https://fr.euronews.com/next/2025/04/08/tiktok-a-apporte-des-modifications-avant-la-repetition-des-elections-roumaines-selon-bruxe">TIKTOK</a>
@@ -142,35 +142,11 @@
             </div>
         </div>
 
-        <div class="footer-links">
-            <section class="footer-column">
-                <h4>Thèmes</h4>
-                <a href="#">Monde</a>
-                <a href="#">Europe</a>
-                <a href="#">Business</a>
-                <a href="#">Sport</a>
-                <a href="#">Culture</a>
-            </section>
-            <section class="footer-column">
-                <h4>Services</h4>
-                <a href="#">Applications</a>
-                <a href="#">Newsletter</a>
-                <a href="#">Publicité</a>
-                <a href="#">Contacts</a>
-            </section>
-            <section class="footer-column">
-                <h4>Plus</h4>
-                <a href="#">À propos</a>
-                <a href="#">Politique de confidentialité</a>
-                <a href="#">Mentions légales</a>
-            </section>
-        </div>
-
         <div class="footer-bottom">
             © 2025 euronews. Tous droits réservés | Projet créé le 08/04/2025 | Bachelier Informatique<br>
             Contact: 24-00523.amm.abd@isfce.be | ISFCE 4IWPB
         </div>
     </footer>
-</body>
 
+</body>
 </html>
