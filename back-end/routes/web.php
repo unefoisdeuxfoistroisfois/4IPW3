@@ -65,12 +65,10 @@ Route::get('/apropos', function () {
 // Route pour recherche le formulaire
 Route::get('/search', [ArticleController::class, 'search'])->name('search');
 
-<<<<<<< HEAD
 //Route Pour les favoris et ajout de favoris
 Route::get('/favoris', [FavorisController::class, 'index'])->name('favoris');
 Route::post('/favoris/add/{id}', [FavorisController::class, 'add'])->name('favoris.add');
 Route::post('/favoris/remove/{id}', [FavorisController::class, 'remove'])->name('favoris.remove');
-=======
+
 // Route pour sauvegarder les changement d'option de presentation
 Route::post('/save-options', [CustomController::class, 'saveOptions'])->name('save-options');
->>>>>>> 53d22f8e0ab9b8c5c11144c5918e2983683c9c3e
