@@ -51,18 +51,58 @@
             📌 Mes Articles Favoris
         </h1>
 
+        {{-- Nombre total dynamique --}}
         <p style="color: #666; margin-bottom: 40px;">
-            Nombre total d'articles favoris : <strong>0</strong>
+            Nombre total d'articles favoris :
+            <strong>{{ $articles->count() }}</strong>
         </p>
 
-        <!-- Message si aucun favori -->
-        <div style="text-align: center; padding: 60px 20px; background: #f9f9f9; border-radius: 10px;">
-            <p style="font-size: 1.2rem; color: #999;">Vous n'avez pas encore d'articles favoris</p>
-            <p style="color: #666; margin-top: 10px;">Parcourez nos articles et ajoutez-les à vos favoris !</p>
-            <a href="{{ url('/') }}" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: rgb(197, 197, 0); color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">
-                Retour à l'accueil
-            </a>
-        </div>
+        {{-- Si il y a des favoris --}}
+        @if($articles->count() > 0)
+
+            @foreach($articles as $article)
+
+                <article style="border-bottom:1px solid #ddd; padding:20px 0;">
+
+                    <h3>
+                        <a href="{{ route('article', ['id' => $article->id_art]) }}">
+                            {{ $article->title_art }}
+                        </a>
+                    </h3>
+
+                    <p>{{ $article->hook_art }}</p>
+
+                    <small>
+                        Date : {{ $article->date_art }} |
+                        Lecture : {{ $article->readtime_art }} min
+                    </small>
+
+                    <form action="{{ route('favoris.remove', $article->id_art) }}" method="POST" style="margin-top:10px;">
+                        @csrf
+                        <button type="submit" style="background:red; color:white; padding:6px 12px;">
+                            Retirer des favoris
+                        </button>
+                    </form>
+
+                </article>
+
+            @endforeach
+
+        @else
+
+            {{-- Message si aucun favori --}}
+            <div style="text-align: center; padding: 60px 20px; background: #f9f9f9; border-radius: 10px;">
+                <p style="font-size: 1.2rem; color: #999;">
+                    Vous n'avez pas encore d'articles favoris
+                </p>
+
+                <a href="{{ url('/') }}" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: rgb(197, 197, 0); color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                    Retour à l'accueil
+                </a>
+            </div>
+
+        @endif
+
     </main>
 
     <footer>

@@ -73,6 +73,23 @@
                 Date : {{ $a->date_art }} |
                 Lecture : {{ $a->readtime_art }} min
             </small>
+            {{-- =========================
+            Bouton Ajouter aux favoris
+            ========================= --}}
+
+            <form action="{{ route('favoris.add', $a->id_art) }}" method="POST" style="margin-top:10px;">
+                @csrf
+
+                @if(in_array($a->id_art, session('favoris', [])))
+                    <button disabled style="background:#ccc; padding:5px 10px;">
+                        Déjà en favori
+                    </button>
+                @else
+                    <button type="submit" style="background:#C5C500FF; color:white; padding:5px 10px;">
+                        Ajouter aux favoris
+                    </button>
+                @endif
+            </form>
         </article>
     @endforeach
 

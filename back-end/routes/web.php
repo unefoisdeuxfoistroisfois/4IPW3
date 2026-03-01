@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\FavorisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,10 +56,6 @@ Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article')
 // Liste des articles (DB)
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
-//Page pour les favoris
-Route::get('/favoris', function() {
-    return view('favoris');
-});
 
 //Page pour a propos
 Route::get('/apropos', function () {
@@ -67,3 +64,8 @@ Route::get('/apropos', function () {
 
 // Route pour recherche le formulaire
 Route::get('/search', [ArticleController::class, 'search'])->name('search');
+
+//Route Pour les favoris et ajout de favoris
+Route::get('/favoris', [FavorisController::class, 'index'])->name('favoris');
+Route::post('/favoris/add/{id}', [FavorisController::class, 'add'])->name('favoris.add');
+Route::post('/favoris/remove/{id}', [FavorisController::class, 'remove'])->name('favoris.remove');
