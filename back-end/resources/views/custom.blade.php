@@ -48,7 +48,7 @@
 
     <!--
     Ça applique les options sauvegardées en SESSION directement sur la page
-    Ça lit ce que l'utilisateur a choisi (stocké en SESSION) et l'applique visuellemen 
+    Ça lit ce que l'utilisateur a choisi (stocké en SESSION) et l'applique visuellemen
     -->
     <body style="
         background-color: {{ session('background_color', 'white') }};
@@ -72,9 +72,9 @@
 
             <label for="border-style">Style des bordures :</label>
             <select id="border-style" name="border_style">
-                <option value="solid" {{ session('border_style') == 'solid' ? 'selected' : '' }}>Plein</option>
-                <option value="dotted" {{ session('border_style') == 'dotted' ? 'selected' : '' }}>Pointillé</option>
-                <option value="dashed" {{ session('border_style') == 'dashed' ? 'selected' : '' }}>Tiret</option>
+                <option value="solid" {{ session('border_style') == 'solid' ? 'selected' : '' }}>None</option>
+                <option value="dotted" {{ session('border_style') == 'dotted' ? 'selected' : '' }}>Thin</option>
+                <option value="dashed" {{ session('border_style') == 'dashed' ? 'selected' : '' }}>Thick</option>
                 <option value="double" {{ session('border_style') == 'double' ? 'selected' : '' }}>Double</option>
             </select>
 
@@ -97,8 +97,8 @@
         <form>
             <label for="font-family">Famille de police :</label>
             <select id="font-family" name="font-family">
-                <option value="Bodoni MT">Bodoni MT</option>
-                <option value="Courier New">Courier New</option>
+                <option value="Times">Bodoni MT</option>
+                <option value="Consolas">Courier New</option>
                 <option value="Arial">Arial</option>
             </select>
 
