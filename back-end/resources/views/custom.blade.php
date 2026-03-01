@@ -101,12 +101,10 @@
 
     <main class="formulaire-recherche">
         <h1 class="form-title">Faire votre recherche :</h1>
-        <form class="search-form" action="#" method="get">
-            <label for="titre-motscles">Mots-clés dans le titre :</label>
-            <input type="text" id="titre-motscles" name="titre-motscles" placeholder="Entrez des mots-clés...">
+        <form class="search-form" action="{{ route('search') }}" method="get">
 
-            <label for="corps-motscles">Mots-clés dans le texte :</label>
-            <input type="text" id="corps-motscles" name="corps-motscles" placeholder="Entrez des mots-clés...">
+            <label for="keyword">Rechercher un article :</label>
+            <input type="text" id="keyword" name="keyword" placeholder="Entrez des mots-clés..." required>
 
             <label for="date">Date :</label>
             <input type="date" id="date" name="date">
@@ -133,22 +131,45 @@
         </form>
     </main>
 
-    <footer>
-        <div class="footer-top">
-            <div class="footer-logo">euronews.</div>
-            <div class="footer-socials">
-                <a href="https://www.facebook.com/euronews" target="_blank">Facebook</a>
-                <a href="https://twitter.com/euronews" target="_blank">Twitter</a>
-                <a href="https://www.instagram.com/euronews.tv/" target="_blank">Instagram</a>
-                <a href="https://www.youtube.com/euronews" target="_blank">YouTube</a>
-            </div>
-        </div>
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">euronews.</div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/euronews" target="_blank">Facebook</a>
+        <a href="https://twitter.com/euronews" target="_blank">Twitter</a>
+        <a href="https://www.instagram.com/euronews.tv/" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/euronews" target="_blank">YouTube</a>
+      </div>
+    </div>
 
-        <div class="footer-bottom">
-            © 2025 euronews. Tous droits réservés | Projet créé le 08/04/2025 | Bachelier Informatique<br>
-            Contact: 24-00523.amm.abd@isfce.be | ISFCE 4IWPB
-        </div>
-    </footer>
+    <div class="footer-links">
+        <section class="footer-column">
+            <h4>Thèmes</h4>
+            <a href="#">Monde</a>
+            <a href="#">Europe</a>
+            <a href="#">Business</a>
+            <a href="#">Sport</a>
+            <a href="#">Culture</a>
+        </section>
+        <section class="footer-column">
+            <h4>Services</h4>
+            <a href="#">Applications</a>
+            <a href="#">Newsletter</a>
+            <a href="#">Publicité</a>
+            <a href="#">Contacts</a>
+        </section>
+        <section class="footer-column">
+            <h4>Plus</h4>
+            <a href="#">À propos</a>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Mentions légales</a>
+        </section>
+    </div>
 
+    <div class="footer-bottom">
+      © 2025 euronews. Tous droits réservés | Projet créé le 08/04/2025 | Bachelier Informatique
+      Contact: 24-00523.amm.abd@isfce.be | ISFCE 4IWPB
+    </div>
+  </footer>
 </body>
 </html>

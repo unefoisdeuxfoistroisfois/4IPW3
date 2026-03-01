@@ -64,3 +64,6 @@ Route::get('/favoris', function() {
 Route::get('/apropos', function () {
     return view('apropos');
 });
+
+// Route pour recherche le formulaire
+Route::get('/search', [ArticleController::class, 'search'])->name('search');
