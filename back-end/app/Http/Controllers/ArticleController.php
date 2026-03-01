@@ -45,4 +45,23 @@ class ArticleController extends Controller
 
         return view('articles.show', compact('article'));
     }
+    /*
+    |--------------------------------------------------------------------------
+    | search()
+    |--------------------------------------------------------------------------
+    | recherche article
+    */
+    public function search()
+    {
+        $keyword = request('keyword');
+
+        // recherche dans title_art et hook_art
+        $articles = Article::where('title_art', 'LIKE', "%{$keyword}%")
+                           ->orWhere('hook_art', 'LIKE', "%{$keyword}%")
+                           ->orderBy('date_art', 'desc')
+                           ->limit(10)
+                           ->get();
+
+        return view('search_results', compact('articles', 'keyword'));
+    }
 }
