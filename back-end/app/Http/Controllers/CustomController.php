@@ -16,6 +16,7 @@ class CustomController extends Controller
         return view('custom');
     }
 
+<<<<<<< HEAD
     // ==============================
     // Fonction qui traite la recherche
     // ==============================
@@ -86,5 +87,20 @@ class CustomController extends Controller
 
         // On envoie les résultats vers une nouvelle vue
         return view('search-results', compact('articles'));
+=======
+    public function saveOptions()
+    {
+        // Sauvegarde en SESSION
+        session([
+            'background_color' => request('background_color'),
+            'border_color' => request('border_color'),
+            'border_style' => request('border_style'),
+            'word_break' => request('word_break'),
+            'word_spacing' => request('word_spacing'),
+        ]);
+    
+        // Redirige vers la page custom
+        return redirect()->route('custom');
+>>>>>>> 53d22f8e0ab9b8c5c11144c5918e2983683c9c3e
     }
 }
