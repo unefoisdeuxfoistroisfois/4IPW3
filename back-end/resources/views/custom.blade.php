@@ -46,27 +46,50 @@
         <a href="https://fr.euronews.com/2025/04/08/lotan-ne-peut-pas-etre-naive-face-au-renforcement-militaire-de-la-chine-alerte-mark-rutte">OTAN</a>
     </nav>
 
+    <!--
+    Ça applique les options sauvegardées en SESSION directement sur la page
+    Ça lit ce que l'utilisateur a choisi (stocké en SESSION) et l'applique visuellemen 
+    -->
+    <body style="
+        background-color: {{ session('background_color', 'white') }};
+        word-spacing: {{ session('word_spacing', 0) }}px;
+    ">
+
     <section class="top-menu">
-        <form>
+        <form action="{{ route('save-options') }}" method="POST">
+            @csrf
+
+            <label for="background-color">Couleur du fond :</label>
+            <select id="background-color" name="background_color">
+                <option value="white" {{ session('background_color') == 'white' ? 'selected' : '' }}>Blanc</option>
+                <option value="#f0f0f0" {{ session('background_color') == '#f0f0f0' ? 'selected' : '' }}>Gris</option>
+                <option value="#ffeb3b" {{ session('background_color') == '#ffeb3b' ? 'selected' : '' }}>Jaune</option>
+                <option value="#ff7043" {{ session('background_color') == '#ff7043' ? 'selected' : '' }}>Coral</option>
+            </select>
+
             <label for="border-color">Couleur des bordures :</label>
-            <input type="color" id="border-color" name="border-color">
+            <input type="color" id="border-color" name="border_color" value="{{ session('border_color', '#000000') }}">
 
             <label for="border-style">Style des bordures :</label>
-            <select id="border-style" name="border-style">
-                <option value="solid">Plein</option>
-                <option value="dotted">Pointillé</option>
-                <option value="dashed">Tiret</option>
-                <option value="double">Double</option>
+            <select id="border-style" name="border_style">
+                <option value="solid" {{ session('border_style') == 'solid' ? 'selected' : '' }}>Plein</option>
+                <option value="dotted" {{ session('border_style') == 'dotted' ? 'selected' : '' }}>Pointillé</option>
+                <option value="dashed" {{ session('border_style') == 'dashed' ? 'selected' : '' }}>Tiret</option>
+                <option value="double" {{ session('border_style') == 'double' ? 'selected' : '' }}>Double</option>
             </select>
 
             <label for="word-break">Césure dans les mots :</label>
-            <select id="word-break" name="word-break">
-                <option value="normal">Normal</option>
-                <option value="break-word">Césure automatique</option>
+            <select id="word-break" name="word_break">
+                <option value="normal" {{ session('word_break') == 'normal' ? 'selected' : '' }}>Normal</option>
+                <option value="break-word" {{ session('word_break') == 'break-word' ? 'selected' : '' }}>Césure automatique</option>
             </select>
 
             <label for="word-spacing">Espacement entre mots :</label>
-            <input type="number" id="word-spacing" name="word-spacing" min="0" max="20"> px
+            <input type="number" id="word-spacing" name="word_spacing" value="{{ session('word_spacing', 0) }}" min="0" max="20"> px
+
+            <button type="submit" style="padding: 8px 20px; background: rgb(197, 197, 0); border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                Appliquer
+            </button>
         </form>
     </section>
 
