@@ -55,3 +55,12 @@ Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article')
 // Liste des articles (DB)
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
+//Page pour les favoris
+Route::get('/favoris', function() {
+    return view('favoris');
+});
+
+//Page pour a propos
+Route::get('/apropos', function () {
+    return view('apropos');
+});
