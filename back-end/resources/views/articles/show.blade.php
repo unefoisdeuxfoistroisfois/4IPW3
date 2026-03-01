@@ -61,7 +61,8 @@
 
         <p><strong>{{ $article->hook_art }}</strong></p>
 
-        <p>{!! nl2br(e($article->content_art)) !!}</p>
+        {!! $article->content_art !!}
+
     </main>
 
     <footer>
