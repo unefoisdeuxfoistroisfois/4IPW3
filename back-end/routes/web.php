@@ -67,3 +67,6 @@ Route::get('/apropos', function () {
 
 // Route pour recherche le formulaire
 Route::get('/search', [ArticleController::class, 'search'])->name('search');
+
+// Route pour sauvegarder les changement d'option de presentation
+Route::post('/save-options', [CustomController::class, 'saveOptions'])->name('save-options');
