@@ -34,7 +34,8 @@
     <a href="#">Sport</a>
     <a href="#">Culture</a>
     <a href="{{ url('/custom') }}">Formulaire</a>
-
+    <a href="{{ url('/favoris') }}">Favoris</a>
+    <a href="{{ url('/apropos') }}">À propos</a>
   </nav>
 
   <nav>

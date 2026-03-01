@@ -17,3 +17,12 @@ Route::get('/article', function () {
     return view('article');
 });
 
+//Page pour les favoris
+Route::get('/favoris', function() {
+    return view('favoris');
+});
+
+//Page pour a propos
+Route::get('/apropos', function () {
+    return view('apropos');
+});
