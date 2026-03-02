@@ -56,12 +56,6 @@ Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article')
 // Liste des articles (DB)
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
-
-//Page pour a propos
-Route::get('/apropos', function () {
-    return view('apropos');
-});
-
 // Route pour recherche le formulaire
 Route::get('/search', [ArticleController::class, 'search'])->name('search');
 
@@ -72,3 +66,21 @@ Route::post('/favoris/remove/{id}', [FavorisController::class, 'remove'])->name(
 
 // Route pour sauvegarder les changement d'option de presentation
 Route::post('/save-options', [CustomController::class, 'saveOptions'])->name('save-options');
+
+// Route pour la liste des temps de lecture
+Route::get('/readtimes', [ArticleController::class, 'readtimes'])->name('readtimes');
+
+// Route pour afficher les articles d'un temps de lecture spécifique
+Route::get('/readtimes/{time}', [ArticleController::class, 'articlesByReadtime'])->name('articles.by.readtime');
+
+Route::get('/apropos', function () {
+
+    $path = public_path('asset/static_content/apropos.html');
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+
+})->name('apropos');
