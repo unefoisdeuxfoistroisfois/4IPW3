@@ -11,7 +11,7 @@
         * {
             font-family: {{ session('font_family', 'Arial') }} !important;
         }
-        
+
         body {
             background-color: {{ session('background_color', 'white') }} !important;
             word-spacing: {{ session('word_spacing', 0) }}px !important;
@@ -49,7 +49,7 @@
         @php
             $menuItems = \App\Models\Menu::orderBy('order')->get();
         @endphp
-        
+
         @foreach($menuItems as $item)
             <a href="{{ $item->url }}">{{ $item->label }}</a>
         @endforeach
@@ -83,7 +83,10 @@
             <img src="{{ asset('media/' . $article->image_art) }}" class="article-image" alt="">
         @endif
 
-        <p><strong>{{ $article->hook_art }}</strong></p>
+        {{-- Solution pour ne pas afficher le Sous titre en double dans certains articles --}}
+        @if(strpos($article->content_art, $article->hook_art) === false)
+            <p><strong>{{ $article->hook_art }}</strong></p>
+        @endif
 
         {!! $article->content_art !!}
 
