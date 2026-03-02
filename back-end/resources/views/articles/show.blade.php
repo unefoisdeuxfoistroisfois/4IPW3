@@ -34,6 +34,14 @@
                 </select>
             </div>
             <div class="logo">euronews.</div>
+
+            {{-- STATS CLICS avec SUPERGLOBAL --}}
+            @php
+                if (!session_id()) session_start();
+                $totalClicks = $_SESSION['total_clicks'] ?? 0;
+            @endphp
+            <div style="color: #666; font-size: 0.9rem;">
+                Clics totaux : {{ $totalClicks }}
         </div>
     </header>
 
