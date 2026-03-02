@@ -11,7 +11,7 @@
         * {
             font-family: {{ session('font_family', 'Arial') }} !important;
         }
-        
+
         body {
             background-color: {{ session('background_color', 'white') }} !important;
             word-spacing: {{ session('word_spacing', 0) }}px !important;
@@ -75,7 +75,7 @@
     ">
 
     <main style="max-width: 900px; margin: 20px auto; padding: 0 15px;">
-    <h2 class="section-title">Tous les articles (DataBase: press_2025_v04)</h2>
+    <h2 class="section-title">Tous les articles (DataBase: press_2025_v05)</h2>
 
 
     {{--

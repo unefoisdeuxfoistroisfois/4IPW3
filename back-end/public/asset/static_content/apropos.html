@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>À propos - Euronews</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/lib/external.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<header class="header-hover-area">
+    <div class="header-top">
+        <div class="language-selector">
+            <label for="language">Langue:</label>
+            <select id="language" name="language">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+            </select>
+        </div>
+        <div class="logo">euronews.</div>
+    </div>
+</header>
+
+<nav>
+    <a href="/">Accueil</a>
+    <a href="#">Monde</a>
+    <a href="#">Europe</a>
+    <a href="#">Business</a>
+    <a href="#">Sport</a>
+    <a href="#">Culture</a>
+    <a href="/custom">Formulaire</a>
+    <a href="/favoris">Favoris</a>
+    <a href="/apropos">À propos</a>
+</nav>
+
+<nav>
+    <a href="/">Accueil</a>
+    <a href="https://fr.euronews.com/2025/04/08/le-president-zelensky-confirme-que-les-troupes-ukrainiennes-avancent-dans-loblast-de-belgo">UKRAINE</a>
+    <a href="https://fr.euronews.com/business/2025/04/08/von-der-leyen-propose-a-trump-un-accord-sur-les-droits-de-douane-zero-pour-zero-pour-tous-">TRUMP</a>
+    <a href="https://fr.euronews.com/next/2025/04/08/tiktok-a-apporte-des-modifications-avant-la-repetition-des-elections-roumaines-selon-bruxe">TIKTOK</a>
+    <a href="https://fr.euronews.com/2025/04/08/lotan-ne-peut-pas-etre-naive-face-au-renforcement-militaire-de-la-chine-alerte-mark-rutte">OTAN</a>
+</nav>
+
+<main style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+
+    <h1 style="font-family: 'Bodoni MT', serif; color: rgb(197, 197, 0); margin-bottom: 30px;">
+        📋 À propos du projet
+    </h1>
+
+    <section style="background: #f9f9f9; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+        <h2 style="color: rgb(197, 197, 0); font-family: 'Bodoni MT', serif;">Informations générales</h2>
+        <p><strong>Projet :</strong> Site de presse Euronews (version étudiante)</p>
+        <p><strong>Cours :</strong> ISFCE - 4IPW3 - Développement Web Back-End</p>
+        <p><strong>Étudiants :</strong> Abdeslam & Bradley</p>
+        <p><strong>Framework :</strong> Laravel 12.x</p>
+        <p><strong>Base de données :</strong> MySQL (press_2025_v05)</p>
+    </section>
+
+    <section style="background: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <h2 style="color: rgb(197, 197, 0); font-family: 'Bodoni MT', serif;">Historique des livrables</h2>
+
+        <!-- LIVRABLE 2 -->
+        <div style="border-left: 3px solid rgb(197, 197, 0); padding-left: 20px; margin-top: 20px;">
+            <h3 style="color: #333;">📅 Livrable 2 - 01/03/2026</h3>
+            <ul style="line-height: 1.8;">
+                <li>✅ Migration du projet vers Laravel</li>
+                <li>✅ Intégration des vues Blade (index, custom, article, favoris, à propos)</li>
+                <li>✅ Configuration des routes web</li>
+                <li>✅ Structure MVC en place</li>
+                <li>✅ Page de gestion des favoris créée</li>
+                <li>✅ Articles page d'accueil – catégorie "On n'est pas des pigeons" (max 10)</li>
+                <li>✅ Source des pages statiques via fichiers HTML (/asset/static_content)</li>
+                <li>✅ Menu dynamique depuis base SQL</li>
+                <li>✅ Lien supplémentaire : liste des temps de lecture</li>
+                <li>✅ Gestion statistique des clics (SESSION)</li>
+                <li>✅ Options de présentation (police, bordures)</li>
+                <li>✅ Sauvegarde des préférences utilisateur (Bonus)</li>
+            </ul>
+        </div>
+
+        <!-- LIVRABLE 1 -->
+        <div style="border-left: 3px solid #C5C500FF; padding-left: 20px; margin-top: 30px;">
+            <h3 style="color: #333;">📅 Livrable 1 - 03/11/2025</h3>
+            <ul style="line-height: 1.8;">
+                <li>✅ Création de la charte graphique (CSS pur, sans Bootstrap)</li>
+                <li>✅ Page d'accueil avec article principal et articles secondaires</li>
+                <li>✅ Page article complet (exemple : Cora)</li>
+                <li>✅ Formulaire de recherche avec widgets</li>
+                <li>✅ Design responsive (mobile/desktop)</li>
+                <li>✅ Navigation fonctionnelle</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section style="background: #f9f9f9; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+        <h2 style="color: rgb(197, 197, 0); font-family: 'Bodoni MT', serif;">Répartition du travail</h2>
+
+        <h3 style="margin-top: 20px;">👤 Travail réalisé par Abdeslam</h3>
+        <ul style="line-height: 1.8;">
+            <li>Articles page d'accueil (Back-End)</li>
+            <li>Affichage catégorie "On n'est pas des pigeons"</li>
+            <li>Source pages statiques (/asset/static_content)</li>
+            <li>Composants identifiés (Point 3)</li>
+            <li>Panier d’articles favoris</li>
+        </ul>
+
+        <h3 style="margin-top: 20px;">👤 Travail réalisé par Bradley</h3>
+        <ul style="line-height: 1.8;">
+            <li>Source du menu (table SQL dédiée)</li>
+            <li>Ajout de la table MENU dans la Base de Données</li>
+            <li>Lien supplémentaire : temps de lecture</li>
+            <li>Gestion statistique des clics</li>
+            <li>Options de présentation (polices, bordures et couleurs)</li>
+            <li>Bonus : sauvegarde des préférences utilisateur</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-top">
+        <div class="footer-logo">euronews.</div>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/euronews" target="_blank">Facebook</a>
+            <a href="https://twitter.com/euronews" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/euronews.tv/" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/euronews" target="_blank">YouTube</a>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <section class="footer-column">
+            <h4>Thèmes</h4>
+            <a href="#">Monde</a>
+            <a href="#">Europe</a>
+            <a href="#">Business</a>
+            <a href="#">Sport</a>
+            <a href="#">Culture</a>
+        </section>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 euronews. Tous droits réservés
+    </div>
+</footer>
+
+</body>
+</html>
