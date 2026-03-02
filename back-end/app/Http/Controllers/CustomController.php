@@ -25,6 +25,7 @@ class CustomController extends Controller
             'border_style' => request('border_style'),
             'word_break' => request('word_break'),
             'word_spacing' => request('word_spacing'),
+            'font_family' => request('font_family'),
         ]);
     
         // Redirige vers la page custom
