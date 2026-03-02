@@ -72,3 +72,9 @@ Route::post('/favoris/remove/{id}', [FavorisController::class, 'remove'])->name(
 
 // Route pour sauvegarder les changement d'option de presentation
 Route::post('/save-options', [CustomController::class, 'saveOptions'])->name('save-options');
+
+// Route pour la liste des temps de lecture
+Route::get('/readtimes', [ArticleController::class, 'readtimes'])->name('readtimes');
+
+// Route pour afficher les articles d'un temps de lecture spécifique
+Route::get('/readtimes/{time}', [ArticleController::class, 'articlesByReadtime'])->name('articles.by.readtime');

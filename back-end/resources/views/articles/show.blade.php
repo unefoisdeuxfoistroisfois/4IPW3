@@ -46,15 +46,13 @@
     </header>
 
     <nav>
-        <a href="{{ url('/') }}">Accueil</a>
-        <a href="#">Monde</a>
-        <a href="#">Europe</a>
-        <a href="#">Business</a>
-        <a href="#">Sport</a>
-        <a href="#">Culture</a>
-        <a href="{{ url('/custom') }}">Formulaire</a>
-        <a href="{{ url('/favoris') }}">Favoris</a>
-        <a href="{{ url('/apropos') }}">À propos</a>
+        @php
+            $menuItems = \App\Models\Menu::orderBy('order')->get();
+        @endphp
+        
+        @foreach($menuItems as $item)
+            <a href="{{ $item->url }}">{{ $item->label }}</a>
+        @endforeach
     </nav>
 
     <nav>

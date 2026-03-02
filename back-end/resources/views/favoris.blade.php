@@ -47,17 +47,14 @@
     </header>
 
     <nav>
-        <a href="{{ url('/') }}">Accueil</a>
-        <a href="#">Monde</a>
-        <a href="#">Europe</a>
-        <a href="#">Business</a>
-        <a href="#">Sport</a>
-        <a href="#">Culture</a>
-        <a href="{{ url('/custom') }}">Formulaire</a>
-        <a href="{{ url('/favoris') }}">Favoris</a>
-        <a href="{{ url('/apropos') }}">À propos</a>
+        @php
+            $menuItems = \App\Models\Menu::orderBy('order')->get();
+        @endphp
+        
+        @foreach($menuItems as $item)
+            <a href="{{ $item->url }}">{{ $item->label }}</a>
+        @endforeach
     </nav>
-
     <nav>
         <a href="{{ url('/') }}">Accueil</a>
         <a href="https://fr.euronews.com/2025/04/08/le-president-zelensky-confirme-que-les-troupes-ukrainiennes-avancent-dans-loblast-de-belgo">UKRAINE</a>
@@ -75,7 +72,7 @@
 
     <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
         <h1 style="font-family: 'Bodoni MT', serif; color: rgb(197, 197, 0); margin-bottom: 30px;">
-            📌 Mes Articles Favoris
+            Mes Articles Favoris
         </h1>
 
         {{-- Nombre total dynamique --}}
