@@ -91,6 +91,43 @@
             </aside>
         </section>
 
+        <!-- Liste d'articles : "On n'est pas des pigeons" -->
+        <section class="category-section" style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+
+            <h2 class="section-title">On n'est pas des pigeons</h2>
+
+            @if($articles->isEmpty())
+                <p>Aucun article disponible pour cette catégorie.</p>
+            @else
+
+                @foreach($articles as $article)
+
+                    <article style="border-bottom:1px solid #ddd; padding:20px 0;">
+
+                        <!-- Titre de l'article avec lien vers page -->
+                        <h3>
+                            <a href="{{ route('article', $article->id_art) }}">
+                                {{ $article->title_art }}
+                            </a>
+                        </h3>
+
+                        <!-- Accroche -->
+                        <p>{{ $article->hook_art }}</p>
+
+                        <!-- Informations complémentaires -->
+                        <small>
+                            Date : {{ $article->date_art }} |
+                            Temps de lecture : {{ $article->readtime_art }} min
+                        </small>
+
+                    </article>
+
+                @endforeach
+
+            @endif
+
+        </section>
+
         <section class="discovery-section">
             <h2 class="section-title">À découvrir</h2>
             <div class="discovery">
