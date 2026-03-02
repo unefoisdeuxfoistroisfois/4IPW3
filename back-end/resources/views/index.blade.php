@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/lib/external.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /* Force la police sur tous les éléments */
+        * {
+            font-family: {{ session('font_family', 'Arial') }} !important;
+        }
+        
+        /* Force les styles sur le body */
+        body {
+            background-color: {{ session('background_color', 'white') }} !important;
+            word-spacing: {{ session('word_spacing', 0) }}px !important;
+            border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }} !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,6 +37,15 @@
                 </select>
             </div>
             <div class="logo">euronews.</div>
+
+            {{-- STATS CLICS avec SUPERGLOBAL --}}
+            @php
+                if (!session_id()) session_start();
+                $totalClicks = $_SESSION['total_clicks'] ?? 0;
+            @endphp
+            <div style="color: #666; font-size: 0.9rem;">
+                Clics totaux : {{ $totalClicks }}
+            </div>
         </div>
     </header>
 
@@ -61,29 +84,25 @@
 
             <aside class="side-articles">
                 <article>
-                    <a
-                        href="https://fr.euronews.com/2025/04/08/le-president-zelensky-confirme-que-les-troupes-ukrainiennes-avancent-dans-loblast-de-belgo">
+                    <a href="https://fr.euronews.com/2025/04/08/le-president-zelensky-confirme-que-les-troupes-ukrainiennes-avancent-dans-loblast-de-belgo">
                         <img src="/media/ukraine.jpeg" alt="Ukraine">
                         <h4>Zelensky confirme que les troupes ukrainiennes avancent dans l'oblast russe de Belgorod</h4>
                     </a>
                 </article>
                 <article>
-                    <a
-                        href="https://fr.euronews.com/business/2025/04/08/trump-menace-la-chine-de-50-de-taxes-supplementaires-pekin-jure-de-se-battre-jusquau-bout">
+                    <a href="https://fr.euronews.com/business/2025/04/08/trump-menace-la-chine-de-50-de-taxes-supplementaires-pekin-jure-de-se-battre-jusquau-bout">
                         <img src="/media/pekin.jpeg" alt="Pékin">
                         <h4>Pékin "se battra jusqu'au bout" contre de nouvelles taxes américaines</h4>
                     </a>
                 </article>
                 <article>
-                    <a
-                        href="https://fr.euronews.com/2025/04/08/lundi-noir-sur-les-marches-mais-trump-nenvisage-pas-de-suspendre-ses-droits-de-douane">
+                    <a href="https://fr.euronews.com/2025/04/08/lundi-noir-sur-les-marches-mais-trump-nenvisage-pas-de-suspendre-ses-droits-de-douane">
                         <img src="/media/trumpdouane.jpeg" alt="Trump douane">
                         <h4>Trump reste ferme sur les droits de douane après le lundi noir</h4>
                     </a>
                 </article>
                 <article>
-                    <a
-                        href="https://fr.euronews.com/business/2025/04/08/von-der-leyen-propose-a-trump-un-accord-sur-les-droits-de-douane-zero-pour-zero-pour-tous-">
+                    <a href="https://fr.euronews.com/business/2025/04/08/von-der-leyen-propose-a-trump-un-accord-sur-les-droits-de-douane-zero-pour-zero-pour-tous-">
                         <img src="/media/guerre mondialetrump.jpeg" alt="Trump guerre commerciale">
                         <h4>Trump écarte l'accord "zéro pour zéro" proposé par von der Leyen</h4>
                     </a>
@@ -132,22 +151,19 @@
             <h2 class="section-title">À découvrir</h2>
             <div class="discovery">
                 <article>
-                    <a
-                        href="https://fr.euronews.com/my-europe/2025/04/08/apres-les-pays-bas-la-belgique-va-mettre-en-place-le-service-militaire-volontaire">
+                    <a href="https://fr.euronews.com/my-europe/2025/04/08/apres-les-pays-bas-la-belgique-va-mettre-en-place-le-service-militaire-volontaire">
                         <img src="/media/paysbas.jpeg" alt="Belgique">
                         <h3>La Belgique va mettre en place le service militaire volontaire</h3>
                     </a>
                 </article>
                 <article>
-                    <a
-                        href="https://fr.euronews.com/business/2025/04/08/les-actions-asiatiques-et-les-contrats-a-terme-americains-progressent-les-investisseurs-re">
+                    <a href="https://fr.euronews.com/business/2025/04/08/les-actions-asiatiques-et-les-contrats-a-terme-americains-progressent-les-investisseurs-re">
                         <img src="/media/asie.jpeg" alt="Marché asiatique">
                         <h3>Bourses asiatiques : les investisseurs reprennent le poil de la bête</h3>
                     </a>
                 </article>
                 <article>
-                    <a
-                        href="https://fr.euronews.com/next/2025/04/08/tiktok-a-apporte-des-modifications-avant-la-repetition-des-elections-roumaines-selon-bruxe">
+                    <a href="https://fr.euronews.com/next/2025/04/08/tiktok-a-apporte-des-modifications-avant-la-repetition-des-elections-roumaines-selon-bruxe">
                         <img src="/media/tiktok.jpeg" alt="TikTok élections">
                         <h3>Modifications chez TikTok avant les élections roumaines</h3>
                     </a>
@@ -155,20 +171,17 @@
             </div>
         </section>
 
-        <!-- Section Plus d'infos -->
         <section class="more-news-section">
             <h2 class="section-title">Plus d'infos</h2>
             <div class="more-news">
                 <article>
-                    <a
-                        href="https://fr.euronews.com/2025/04/08/lotan-ne-peut-pas-etre-naive-face-au-renforcement-militaire-de-la-chine-alerte-mark-rutte">
+                    <a href="https://fr.euronews.com/2025/04/08/lotan-ne-peut-pas-etre-naive-face-au-renforcement-militaire-de-la-chine-alerte-mark-rutte">
                         <img src="/media/otan.jpeg" alt="OTAN">
                         <h3>L'OTAN ne peut pas être naïve face au renforcement militaire chinois</h3>
                     </a>
                 </article>
                 <article>
-                    <a
-                        href="https://fr.euronews.com/my-europe/2025/04/09/lallemagne-est-a-nouveau-sur-la-bonne-voie-declare-friedrich-merz-alors-quune-nouvelle-coa">
+                    <a href="https://fr.euronews.com/my-europe/2025/04/09/lallemagne-est-a-nouveau-sur-la-bonne-voie-declare-friedrich-merz-alors-quune-nouvelle-coa">
                         <img src="/media/allemagne.jpeg" alt="Allemagne">
                         <h3>"L'Allemagne est à nouveau sur la bonne voie", déclare Friedrich Merz</h3>
                     </a>

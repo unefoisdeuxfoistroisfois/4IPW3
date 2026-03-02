@@ -97,8 +97,8 @@
         <form>
             <label for="font-family">Famille de police :</label>
             <select id="font-family" name="font-family">
-                <option value="Times">Times</option>
-                <option value="Consolas">Consolas</option>
+                <option value="Times">Bodoni MT</option>
+                <option value="Consolas">Courier New</option>
                 <option value="Arial">Arial</option>
             </select>
 
