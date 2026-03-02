@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/lib/external.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Force la police sur tous les éléments */
+        * {
+            font-family: {{ session('font_family', 'Arial') }} !important;
+        }
+        
+        /* Force les styles sur le body */
+        body {
+            background-color: {{ session('background_color', 'white') }} !important;
+            word-spacing: {{ session('word_spacing', 0) }}px !important;
+            border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }} !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,9 +64,17 @@
     Ça applique les options sauvegardées en SESSION directement sur la page
     Ça lit ce que l'utilisateur a choisi (stocké en SESSION) et l'applique visuellemen
     -->
+    <!--
     <body style="
         background-color: {{ session('background_color', 'white') }};
         word-spacing: {{ session('word_spacing', 0) }}px;
+    ">
+    -->
+    <body style="
+        background-color: {{ session('background_color', 'white') }};
+        font-family: {{ session('font_family', 'Arial') }};
+        word-spacing: {{ session('word_spacing', 0) }}px;
+        border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }};
     ">
 
     <section class="top-menu">
@@ -67,22 +89,22 @@
                 <option value="#ff7043" {{ session('background_color') == '#ff7043' ? 'selected' : '' }}>Coral</option>
             </select>
 
-            <label for="border-color">Couleur des bordures :</label>
-            <input type="color" id="border-color" name="border_color" value="{{ session('border_color', '#000000') }}">
+            <label for="font-family">Famille de police :</label>
+            <select id="font-family" name="font_family">
+                <option value="Arial" {{ session('font_family') == 'Arial' ? 'selected' : '' }}>Arial</option>
+                <option value="Times" {{ session('font_family') == 'Times' ? 'selected' : '' }}>Times</option>
+                <option value="Consolas" {{ session('font_family') == 'Consolas' ? 'selected' : '' }}>Consolas</option>
+            </select>
 
             <label for="border-style">Style des bordures :</label>
             <select id="border-style" name="border_style">
-                <option value="solid" {{ session('border_style') == 'solid' ? 'selected' : '' }}>None</option>
-                <option value="dotted" {{ session('border_style') == 'dotted' ? 'selected' : '' }}>Thin</option>
-                <option value="dashed" {{ session('border_style') == 'dashed' ? 'selected' : '' }}>Thick</option>
-                <option value="double" {{ session('border_style') == 'double' ? 'selected' : '' }}>Double</option>
+                <option value="none" {{ session('border_style') == 'none' ? 'selected' : '' }}>None</option>
+                <option value="thin" {{ session('border_style') == 'thin' ? 'selected' : '' }}>Thin</option>
+                <option value="thick" {{ session('border_style') == 'thick' ? 'selected' : '' }}>Thick</option>
             </select>
 
-            <label for="word-break">Césure dans les mots :</label>
-            <select id="word-break" name="word_break">
-                <option value="normal" {{ session('word_break') == 'normal' ? 'selected' : '' }}>Normal</option>
-                <option value="break-word" {{ session('word_break') == 'break-word' ? 'selected' : '' }}>Césure automatique</option>
-            </select>
+            <label for="border-color">Couleur des bordures :</label>
+            <input type="color" id="border-color" name="border_color" value="{{ session('border_color', '#000000') }}">
 
             <label for="word-spacing">Espacement entre mots :</label>
             <input type="number" id="word-spacing" name="word_spacing" value="{{ session('word_spacing', 0) }}" min="0" max="20"> px
@@ -92,35 +114,6 @@
             </button>
         </form>
     </section>
-
-    <aside class="side-menu">
-        <form>
-            <label for="font-family">Famille de police :</label>
-            <select id="font-family" name="font-family">
-                <option value="Times">Bodoni MT</option>
-                <option value="Consolas">Courier New</option>
-                <option value="Arial">Arial</option>
-            </select>
-
-            <label for="font-style">Style de police :</label>
-            <select id="font-style" name="font-style">
-                <option value="normal">Normal</option>
-                <option value="bold">Gras</option>
-                <option value="italic">Italique</option>
-            </select>
-
-            <label for="background-color">Couleur du fond :</label>
-            <input type="color" id="background-color" name="background-color">
-
-            <label for="text-align">Alignement des paragraphes :</label>
-            <select id="text-align" name="text-align">
-                <option value="left">Gauche</option>
-                <option value="center">Centré</option>
-                <option value="right">Droite</option>
-                <option value="justify">Justifié</option>
-            </select>
-        </form>
-    </aside>
 
     <main class="formulaire-recherche">
         <h1 class="form-title">Faire votre recherche :</h1>

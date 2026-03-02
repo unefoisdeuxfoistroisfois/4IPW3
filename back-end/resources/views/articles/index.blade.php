@@ -6,6 +6,18 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/lib/external.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            font-family: {{ session('font_family', 'Arial') }} !important;
+        }
+        
+        body {
+            background-color: {{ session('background_color', 'white') }} !important;
+            word-spacing: {{ session('word_spacing', 0) }}px !important;
+            border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }} !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,7 +58,14 @@
         <a href="https://fr.euronews.com/2025/04/08/lotan-ne-peut-pas-etre-naive-face-au-renforcement-militaire-de-la-chine-alerte-mark-rutte">OTAN</a>
     </nav>
 
-<main style="max-width: 900px; margin: 20px auto; padding: 0 15px;">
+    <body style="
+        background-color: {{ session('background_color', 'white') }};
+        font-family: {{ session('font_family', 'Arial') }};
+        word-spacing: {{ session('word_spacing', 0) }}px;
+        border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }};
+    ">
+
+    <main style="max-width: 900px; margin: 20px auto; padding: 0 15px;">
     <h2 class="section-title">Tous les articles (DataBase: press_2025_v04)</h2>
 
 

@@ -7,6 +7,20 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/lib/external.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+      /* Force la police sur TOUS les éléments */
+      * {
+          font-family: {{ session('font_family', 'Arial') }} !important;
+      }
+      
+      /* Force les styles sur le body */
+      body {
+          background-color: {{ session('background_color', 'white') }} !important;
+          word-spacing: {{ session('word_spacing', 0) }}px !important;
+          border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }} !important;
+      }
+  </style>
 </head>
 
 <body>
@@ -45,6 +59,13 @@
     <a href="https://fr.euronews.com/next/2025/04/08/tiktok-a-apporte-des-modifications-avant-la-repetition-des-elections-roumaines-selon-bruxe">TIKTOK</a>
     <a href="https://fr.euronews.com/2025/04/08/lotan-ne-peut-pas-etre-naive-face-au-renforcement-militaire-de-la-chine-alerte-mark-rutte">OTAN</a>
   </nav>
+
+  <body style="
+      background-color: {{ session('background_color', 'white') }};
+      font-family: {{ session('font_family', 'Arial') }};
+      word-spacing: {{ session('word_spacing', 0) }}px;
+      border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }};
+  ">
 
   <main class="article-page">
     <section class="article-info">
