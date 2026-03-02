@@ -15,6 +15,34 @@ class ArticleController extends Controller
     */
     public function cora()
     {
+        // Démarrer la session PHP si pas encore démarrée
+        if (!session_id()) {
+            session_start();
+        }
+
+        // ============================
+        // GESTION STATISTIQUE
+        // ============================
+
+        // ID fictif pour l'article Cora (par exemple "cora")
+        $id = 'cora';
+
+        // Initialiser le tableau de stats si nécessaire
+        if (!isset($_SESSION['article_clicks'])) {
+            $_SESSION['article_clicks'] = [];
+        }
+
+        // Incrémenter le compteur
+        if (!isset($_SESSION['article_clicks'][$id])) {
+            $_SESSION['article_clicks'][$id] = 0;
+        }
+        $_SESSION['article_clicks'][$id]++;
+
+        // Calculer le total de clics
+        $_SESSION['total_clicks'] = array_sum($_SESSION['article_clicks']);
+
+        // ============================
+
         return view('article');
     }
 
@@ -38,13 +66,49 @@ class ArticleController extends Controller
     |--------------------------------------------------------------------------
     | Affiche un article précis depuis la base de données.
     | $id vient de l'URL : /article/{id}
+    | AVEC gestion statistique des clics (superglobal SESSION)
+    |
+    | Laravel session() :
+    | session()->put('key', 'value');
+    | $value = session()->get('key');
+    |
+    | Superglobal $_SESSION :
+    | $_SESSION['key'] = 'value';
+    | $value = $_SESSION['key'];
     */
     public function show($id)
     {
+        // Démarrer la session PHP si pas encore démarrée
+        if (!session_id()) {
+            session_start();
+        }
+
+        // Récupère l'article depuis la DB
         $article = Article::findOrFail($id);
+
+        // ============================
+        // GESTION STATISTIQUE
+        // ============================
+
+        // Initialiser le tableau de stats si nécessaire
+        if (!isset($_SESSION['article_clicks'])) {
+            $_SESSION['article_clicks'] = [];
+        }
+
+        // Incrémenter le compteur pour cet article
+        if (!isset($_SESSION['article_clicks'][$id])) {
+            $_SESSION['article_clicks'][$id] = 0;
+        }
+        $_SESSION['article_clicks'][$id]++;
+
+        // Calculer le total de clics
+        $_SESSION['total_clicks'] = array_sum($_SESSION['article_clicks']);
+
+        // ============================
 
         return view('articles.show', compact('article'));
     }
+
     /*
     |--------------------------------------------------------------------------
     | search()
