@@ -128,4 +128,37 @@ class ArticleController extends Controller
 
         return view('search_results', compact('articles', 'keyword'));
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | readtimes()
+    |--------------------------------------------------------------------------
+    | Affiche la liste de tous les temps de lecture uniques
+    */
+    public function readtimes()
+    {
+        // Récupère tous les temps de lecture uniques, triés par ordre croissant
+        $readtimes = Article::select('readtime_art')
+                            ->distinct()
+                            ->orderBy('readtime_art', 'asc')
+                            ->pluck('readtime_art');
+
+        return view('readtimes', compact('readtimes'));
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | articlesByReadtime($time)
+    |--------------------------------------------------------------------------
+    | Affiche tous les articles d'un temps de lecture spécifique
+    */
+    public function articlesByReadtime($time)
+    {
+        // Récupère tous les articles avec ce temps de lecture
+        $articles = Article::where('readtime_art', $time)
+                           ->orderBy('date_art', 'desc')
+                           ->paginate(10);
+
+        return view('articles.by-readtime', compact('articles', 'time'));
+    }
 }

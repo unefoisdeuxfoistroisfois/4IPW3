@@ -59,7 +59,7 @@ Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
 //Page pour a propos
 Route::get('/apropos', function () {
-    return response()->file(public_path('asset/static_content/apropos.html'));
+    return view('apropos');
 });
 
 // Route pour recherche le formulaire

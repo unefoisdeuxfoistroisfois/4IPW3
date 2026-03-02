@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <title>Liste des articles</title>
+    <title>Articles de {{ $time }} minutes - Euronews</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/lib/external.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <style>
         * {
             font-family: {{ session('font_family', 'Arial') }} !important;
         }
-
+        
         body {
             background-color: {{ session('background_color', 'white') }} !important;
             word-spacing: {{ session('word_spacing', 0) }}px !important;
@@ -34,7 +35,6 @@
                 </select>
             </div>
             <div class="logo">euronews.</div>
-
             {{-- STATS CLICS avec SUPERGLOBAL --}}
             @php
                 if (!session_id()) session_start();
@@ -42,7 +42,6 @@
             @endphp
             <div style="color: #666; font-size: 0.9rem;">
                 Clics totaux : {{ $totalClicks }}
-            </div>
         </div>
     </header>
 
@@ -57,76 +56,44 @@
     </nav>
 
     <nav>
-        <a href="{{ url('/article') }}">A LA UNE</a>
+        <a href="{{ url('/') }}">Accueil</a>
         <a href="https://fr.euronews.com/2025/04/08/le-president-zelensky-confirme-que-les-troupes-ukrainiennes-avancent-dans-loblast-de-belgo">UKRAINE</a>
         <a href="https://fr.euronews.com/business/2025/04/08/von-der-leyen-propose-a-trump-un-accord-sur-les-droits-de-douane-zero-pour-zero-pour-tous-">TRUMP</a>
         <a href="https://fr.euronews.com/next/2025/04/08/tiktok-a-apporte-des-modifications-avant-la-repetition-des-elections-roumaines-selon-bruxe">TIKTOK</a>
         <a href="https://fr.euronews.com/2025/04/08/lotan-ne-peut-pas-etre-naive-face-au-renforcement-militaire-de-la-chine-alerte-mark-rutte">OTAN</a>
     </nav>
 
-    <body style="
-        background-color: {{ session('background_color', 'white') }};
-        font-family: {{ session('font_family', 'Arial') }};
-        word-spacing: {{ session('word_spacing', 0) }}px;
-        border: {{ session('border_style') == 'thin' ? '1px' : (session('border_style') == 'thick' ? '5px' : '0px') }} solid {{ session('border_color', '#000000') }};
-    ">
+    <main style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+        <h1 style="font-family: 'Bodoni MT', serif; color: rgb(197, 197, 0);">
+            Articles de {{ $time }} minutes
+        </h1>
 
-    <main style="max-width: 900px; margin: 20px auto; padding: 0 15px;">
-    <h2 class="section-title">Tous les articles (DataBase: press_2025_v05)</h2>
+        <p style="color: #666; margin: 20px 0;">
+            {{ $articles->total() }} article(s) trouvé(s)
+        </p>
 
+        @foreach($articles as $article)
+            <article style="border-bottom: 1px solid #ddd; padding: 20px 0;">
+                <h3>
+                    <a href="{{ route('article', $article->id_art) }}" style="color: rgb(197, 197, 0); text-decoration: none;">
+                        {{ $article->title_art }}
+                    </a>
+                </h3>
+                <p>{{ $article->hook_art }}</p>
+                <small style="color: #999;">
+                    {{ $article->date_art }} | ⏱️ {{ $article->readtime_art }} min
+                </small>
+            </article>
+        @endforeach
 
-    {{--
-    $articles vient du controller.
-    On prends les articles depuis la base de données que le prof a fourni.
-    --}}
-    @foreach($articles as $a)
-        <article style="border-bottom:1px solid #ddd; padding:15px 0;">
+        <div style="margin-top: 20px;">
+            {{ $articles->links() }}
+        </div>
 
-            {{--
-            On affiche le titre de l'article.
-            Quand on clique dessus, on va vers /article/{id}
-            --}}
-            <h3>
-                <a href="{{ route('article', ['id' => $a->id_art]) }}">
-                    {{ $a->title_art }}
-                </a>
-            </h3>
-
-            <p>{{ $a->hook_art }}</p>
-
-            <small>
-                Date : {{ $a->date_art }} |
-                Lecture : {{ $a->readtime_art }} min
-            </small>
-            {{-- =========================
-            Bouton Ajouter aux favoris
-            ========================= --}}
-
-            <form action="{{ route('favoris.add', $a->id_art) }}" method="POST" style="margin-top:10px;">
-                @csrf
-
-                @if(in_array($a->id_art, session('favoris', [])))
-                    <button disabled style="background:#ccc; padding:5px 10px;">
-                        Déjà en favori
-                    </button>
-                @else
-                    <button type="submit" style="background:#C5C500FF; color:white; padding:5px 10px;">
-                        Ajouter aux favoris
-                    </button>
-                @endif
-            </form>
-        </article>
-    @endforeach
-
-    {{--
-    Paginate(10) dans le controller = 10 articles par page.
-    --}}
-
-    <div style="margin-top: 20px;">
-        {{ $articles->links() }}
-    </div>
-</main>
-
+        <div style="margin-top: 30px;">
+            <a href="{{ route('readtimes') }}" style="color: rgb(197, 197, 0);">← Retour aux temps de lecture</a>
+        </div>
+    </main>
 
     <footer>
         <div class="footer-top">
@@ -168,7 +135,6 @@
             Contact: 24-00523.amm.abd@isfce.be | ISFCE 4IWPB
         </div>
     </footer>
-
-
 </body>
+
 </html>
